@@ -5,6 +5,7 @@ using JSON
 
 
 
+
 config = JSON.parse(open(file -> read(file, String), "./config.json"))
 
 LoadCogs = filter(cmd -> endswith(cmd, ".jl"), readdir("./Cogs")) 
@@ -28,8 +29,11 @@ const c = Client(
     ))
 
 
+
 function handler(c::Client, m::MessageCreate)
-    println("$(m.message.author) sent $(m.message.content)")
+        # we dont want to log everysingle message
+
+    # println("$(m.message.author) sent $(m.message.content)")
 end
 
 
